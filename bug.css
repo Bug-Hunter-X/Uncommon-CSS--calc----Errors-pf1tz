@@ -1,0 +1,20 @@
+The CSS property `calc()` is used to perform calculations within CSS. However, sometimes, unexpected behavior occurs because of the spaces used in `calc()` expressions.  For example, the following code will not work as expected:
+```css
+.box {
+  width: calc(100% - 10px);
+}
+```
+This is because there should be no spaces around the `-` operator.
+
+Another less common issue is related to using `calc()` with multiple units.  While it supports mixing units (like `px` and `%`), unexpected results can arise if the units are not compatible or if the order of operations isn't carefully considered.
+
+Finally, an uncommon, but tricky bug can occur when using `calc()` inside of nested calculations or with variables. The calculation order and unit compatibility must be very precise.
+```css
+:root {
+  --width: 50%;
+}
+
+.box {
+  width: calc(calc(100vw - 50px) * var(--width)); /*Nested Calc and variable usage*/
+}
+```
