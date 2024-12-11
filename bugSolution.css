@@ -1,0 +1,20 @@
+The corrected code addresses the issues by:
+
+1. Removing unnecessary spaces in `calc()` expressions around arithmetic operators.
+2. Ensuring unit compatibility within the calculations.
+3. Carefully structuring nested expressions and variable usage to maintain a clear calculation order and consistent units.
+
+Here's the corrected CSS:
+```css
+.box {
+  width: calc(100% - 10px);
+}
+
+:root {
+  --width: 50%;
+}
+
+.box {
+  width: calc((100vw - 50px) * var(--width)); /*Corrected Nested Calc and variable usage*/
+}
+```
